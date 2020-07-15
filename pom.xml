@@ -27,11 +27,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <feign-httpclient.version>11.0</feign-httpclient.version>
+
         <basic-base.version>1.0</basic-base.version>
         <basic-core.version>1.0</basic-core.version>
         <basic-web.version>1.0</basic-web.version>
-        <jjwt.version>0.9.1</jjwt.version>
-        <feign-httpclient.version>11.0</feign-httpclient.version>
 
         <module-common.version>1.0</module-common.version>
         <module-base.version>1.0</module-base.version>
