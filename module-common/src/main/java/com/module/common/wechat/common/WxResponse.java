@@ -13,8 +13,6 @@ public class WxResponse extends HttpResponse {
     @JsonProperty("errmsg")
     private String errMsg;
 
-    private static final String SUCCESS = "SUCCESS";
-
     @Override
     public boolean isSuccess() {
         if (this.errCode == null || this.errCode == 0) {

@@ -8,6 +8,7 @@ import com.scottxuan.base.exception.ExceptionUtils;
 import com.scottxuan.base.utils.JsonUtils;
 import com.scottxuan.base.utils.ObjectUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 
 @Slf4j
@@ -23,11 +24,10 @@ public class WxClient {
         log.info("wechat " + httpRequest.getUrl().toString() + " request:" + httpRequest.getParameters());
         String result = HttpClient.request(httpRequest);
         log.info("wechat " + httpRequest.getUrl().toString() + " response:" + result);
-        T response = parseObject(result, httpRequest.getResponse());
-        if (ObjectUtils.isEmpty(response) || !response.isSuccess()) {
-            ExceptionUtils.throwException(ErrorCodes.WE_CHAT_ERROR,response.getErrMsg());
+        if (StringUtils.isBlank(result)) {
+            result = "{\"errcode\":-1,\"errmsg\":[微信]系统超时!}";
         }
-        return response;
+        return parseObject(result, httpRequest.getResponse());
     }
 
     public static <T extends WxResponse> T parseObject(String request, Class<T> response) {
