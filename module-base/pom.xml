@@ -17,6 +17,7 @@
         <dependency>
             <groupId>com.logistics.modules</groupId>
             <artifactId>module-common</artifactId>
+            <version>${module-common.version}</version>
         </dependency>
     </dependencies>
 
