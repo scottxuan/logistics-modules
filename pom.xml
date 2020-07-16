@@ -88,6 +88,11 @@
                 <artifactId>module-auth</artifactId>
                 <version>${module-auth.version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-httpclient</artifactId>
+                <version>${feign-httpclient.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -22,6 +22,14 @@
             <groupId>com.scottxuan.basic</groupId>
             <artifactId>basic-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
