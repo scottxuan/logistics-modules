@@ -20,9 +20,9 @@ public class WxClient {
      * @return
      */
     public static <T extends WxResponse> T request(HttpRequest<T> httpRequest) {
-        log.info("wechat " + httpRequest.getUrl().toString() + " request" + httpRequest.getParameters());
+        log.info("wechat " + httpRequest.getUrl().toString() + " request:" + httpRequest.getParameters());
         String result = HttpClient.request(httpRequest);
-        log.info("wechat " + httpRequest.getUrl().toString() + " request" + result);
+        log.info("wechat " + httpRequest.getUrl().toString() + " response:" + result);
         T response = parseObject(result, httpRequest.getResponse());
         if (ObjectUtils.isEmpty(response) || !response.isSuccess()) {
             ExceptionUtils.throwException(ErrorCodes.WE_CHAT_ERROR,response.getErrMsg());
