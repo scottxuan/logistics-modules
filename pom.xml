@@ -26,7 +26,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
+        <spring.cloud.version>Hoxton.SR6</spring.cloud.version>
         <jjwt.version>0.9.1</jjwt.version>
         <feign-httpclient.version>11.0</feign-httpclient.version>
 
@@ -42,6 +42,7 @@
         <service-gateway.version>1.0</service-gateway.version>
         <service-base.version>1.0</service-base.version>
         <service-auth.version>1.0</service-auth.version>
+        <service-zuul.version>1.0</service-zuul.version>
     </properties>
 
     <dependencyManagement>
