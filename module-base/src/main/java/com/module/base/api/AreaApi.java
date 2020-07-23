@@ -57,7 +57,7 @@ public interface AreaApi {
      * @param asc
      * @return
      */
-    @GetMapping("/parent_page/{parentCode}")
+    @GetMapping("/parent_page")
     @ApiOperation("003--下级区域查询(分页)")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageIndex", value = "页码", defaultValue = "1", example = "1",dataType = "int", paramType = "query"),
@@ -65,7 +65,7 @@ public interface AreaApi {
             @ApiImplicitParam(name = "sort", value = "排序字段", defaultValue = "ordinal", dataType = "string", paramType = "query"),
             @ApiImplicitParam(name = "asc", value = "排序 true升序,false倒序", defaultValue = "true", example = "true",dataType = "boolean", paramType = "query")
     })
-    ResultDto<List<Area>> findByParent(@PathVariable String parentCode,
+    ResultDto<List<Area>> findByParent(@RequestParam(required = false) String parentCode,
                                        @RequestParam(required = false,defaultValue = "1") int pageIndex,
                                        @RequestParam(required = false,defaultValue = "10") int pageSize,
                                        @RequestParam(required = false,defaultValue = "ordinal") String sort,
@@ -76,9 +76,9 @@ public interface AreaApi {
      * @param parentCode
      * @return
      */
-    @GetMapping("/parent/{parentCode}")
+    @GetMapping("/parent")
     @ApiOperation("004--下级区域查询")
-    ResultDto<List<Area>> findByParent(@PathVariable String parentCode);
+    ResultDto<List<Area>> findByParent(@RequestParam(required = false) String parentCode);
 
     /**
      * 根据code查询
