@@ -43,7 +43,7 @@ public interface AuthApi {
      * @return
      */
     @ApiOperation("003--客户账户密码登录")
-    @GetMapping("/customer/login")
+    @PostMapping("/customer/login")
     ResultDto<LoginResult> customerLogin(@RequestBody @Validated LoginDto dto);
 
     /**
