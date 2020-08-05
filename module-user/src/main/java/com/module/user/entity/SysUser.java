@@ -58,6 +58,10 @@ public class SysUser extends BaseEntity {
     @Column(name = "isSystem")
     private Boolean isSystem;
 
+    @ApiModelProperty(value = "是否锁定")
+    @Column(name = "isLocked")
+    private Boolean isLocked;
+
     @ApiModelProperty(value = "是否删除")
     @Column(name = "isDeleted")
     private Boolean isDeleted;

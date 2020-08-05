@@ -1,13 +1,13 @@
 package com.module.auth.api;
 
 import com.module.auth.dto.LoginDto;
+import com.module.auth.dto.LoginResult;
 import com.scottxuan.web.result.ResultDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : pc
@@ -17,17 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface AuthApi {
     /**
      * 系统用户账户密码登录
-     * @param account
-     * @param password
+     * @param dto
      * @return
      */
     @ApiOperation("001--系统用户账户密码登录")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "account", value = "账户", dataType = "string", paramType = "query"),
-            @ApiImplicitParam(name = "password", value = "密码", dataType = "boolean", paramType = "query")
-    })
-    @GetMapping("/login")
-    ResultDto<LoginDto> login(@RequestParam String account, @RequestParam String password);
+    @PostMapping("/login")
+    ResultDto<LoginResult> login(@RequestBody @Validated LoginDto dto);
 
     /**
      * 系统用户小程序登录
@@ -39,22 +34,17 @@ public interface AuthApi {
             @ApiImplicitParam(name = "code", value = "小程序登录code", dataType = "boolean", paramType = "query")
     })
     @GetMapping("/login/mini")
-    ResultDto<LoginDto> miniLogin(@RequestParam String code);
+    ResultDto<LoginResult> miniLogin(@RequestParam String code);
 
 
     /**
      * 客户账户密码登录
-     * @param account
-     * @param password
+     * @param dto
      * @return
      */
     @ApiOperation("003--客户账户密码登录")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "account", value = "账户", dataType = "string", paramType = "query"),
-            @ApiImplicitParam(name = "password", value = "密码", dataType = "boolean", paramType = "query")
-    })
     @GetMapping("/customer/login")
-    ResultDto<LoginDto> customerLogin(@RequestParam String account, @RequestParam String password);
+    ResultDto<LoginResult> customerLogin(@RequestBody @Validated LoginDto dto);
 
     /**
      * 客户小程序登录
@@ -66,5 +56,5 @@ public interface AuthApi {
             @ApiImplicitParam(name = "code", value = "小程序登录code", dataType = "boolean", paramType = "query")
     })
     @GetMapping("/customer/login/mini")
-    ResultDto<LoginDto> customerMiniLogin(@RequestParam String code);
+    ResultDto<LoginResult> customerMiniLogin(@RequestParam String code);
 }
