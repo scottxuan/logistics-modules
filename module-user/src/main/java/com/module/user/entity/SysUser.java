@@ -54,9 +54,9 @@ public class SysUser extends BaseEntity {
     @Column(name = "salt")
     private String salt;
 
-    @ApiModelProperty(value = "是否是主账户")
-    @Column(name = "isSystem")
-    private Boolean isSystem;
+    @ApiModelProperty(value = "是否是超级用户")
+    @Column(name = "isSuper")
+    private Boolean isSuper;
 
     @ApiModelProperty(value = "是否锁定")
     @Column(name = "isLocked")
