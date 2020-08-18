@@ -1,7 +1,7 @@
-package com.module.user.client;
+package com.module.system.client;
 
 import com.module.common.constants.ServiceConstant;
-import com.module.user.api.SysUserApi;
+import com.module.system.api.SysUserApi;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

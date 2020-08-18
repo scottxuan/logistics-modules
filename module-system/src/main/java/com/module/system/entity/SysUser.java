@@ -1,4 +1,4 @@
-package com.module.user.entity;
+package com.module.system.entity;
 
 import com.scottxuan.base.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
