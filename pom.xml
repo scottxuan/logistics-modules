@@ -13,7 +13,7 @@
         <module>module-base</module>
         <module>module-common</module>
         <module>module-auth</module>
-        <module>module-user</module>
+        <module>module-system</module>
     </modules>
 
     <parent>
@@ -38,14 +38,14 @@
         <module-common.version>1.0</module-common.version>
         <module-base.version>1.0</module-base.version>
         <module-auth.version>1.0</module-auth.version>
-        <module-user.version>1.0</module-user.version>
+        <module-system.version>1.0</module-system.version>
 
         <service-register.version>1.0</service-register.version>
         <service-gateway.version>1.0</service-gateway.version>
         <service-base.version>1.0</service-base.version>
         <service-auth.version>1.0</service-auth.version>
         <service-zuul.version>1.0</service-zuul.version>
-        <service-user.version>1.0</service-user.version>
+        <service-system.version>1.0</service-system.version>
     </properties>
 
     <dependencyManagement>
