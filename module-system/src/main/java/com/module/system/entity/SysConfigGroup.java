@@ -29,10 +29,6 @@ public class SysConfigGroup extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @ApiModelProperty(value = "id")
-    @Column(name = "id")
-    private Integer id;
-
     @ApiModelProperty(value = "编号")
     @Column(name = "code")
     private String code;

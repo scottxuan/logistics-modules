@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 /**
  * <p>
@@ -29,10 +30,6 @@ public class SysConfig extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @ApiModelProperty(value = "id")
-    @Column(name = "id")
-    private Integer id;
-
     @ApiModelProperty(value = "编码")
     @Column(name = "code")
     private String code;
