@@ -40,4 +40,12 @@ public interface SysConfigApi {
     @ApiOperation("003--根据code更新")
     @PutMapping
     ResultDto updateByDto(@RequestBody List<SysConfigDto> dtos);
+
+    /**
+     * 清除缓存
+     * @return
+     */
+    @ApiOperation("004--清除缓存")
+    @GetMapping("/cache/clear")
+    ResultDto clearCache();
 }
