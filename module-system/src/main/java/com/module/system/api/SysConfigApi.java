@@ -39,7 +39,7 @@ public interface SysConfigApi {
      */
     @ApiOperation("003--根据code更新")
     @PutMapping
-    ResultDto updateByDto(@RequestBody List<SysConfigDto> dtos);
+    ResultDto<Boolean> updateByDto(@RequestBody List<SysConfigDto> dtos);
 
     /**
      * 清除缓存
@@ -47,5 +47,41 @@ public interface SysConfigApi {
      */
     @ApiOperation("004--清除缓存")
     @GetMapping("/cache/clear")
-    ResultDto clearCache();
+    ResultDto<Boolean> clearCache();
+
+    /**
+     * 根据code查询
+     * @param code
+     * @return
+     */
+    @ApiOperation("005--根据code查询(文本类型)")
+    @GetMapping("/text/{code}")
+    ResultDto<String> findTextByCode(@PathVariable String code);
+
+    /**
+     * 根据code查询
+     * @param code
+     * @return
+     */
+    @ApiOperation("006--根据code查询(单选框类型)")
+    @GetMapping("/single/{code}")
+    ResultDto<String> findSingleByCode(@PathVariable String code);
+
+    /**
+     * 根据code查询
+     * @param code
+     * @return
+     */
+    @ApiOperation("007--根据code查询(多选框类型)")
+    @GetMapping("/multiple/{code}")
+    ResultDto<List<String>> findMultipleByCode(@PathVariable String code);
+
+    /**
+     * 根据code查询
+     * @param code
+     * @return
+     */
+    @ApiOperation("008--根据code查询(布尔类型)")
+    @GetMapping("/boolean/{code}")
+    ResultDto<Boolean> findBooleanByCode(@PathVariable String code);
 }
