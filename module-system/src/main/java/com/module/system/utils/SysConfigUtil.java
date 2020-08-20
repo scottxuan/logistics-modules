@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author : pc
@@ -27,7 +28,12 @@ public class SysConfigUtil {
         sysConfigUtil = this;
     }
 
-    public static String findTextByCode(String code){
+    /**
+     * 获取文本
+     * @param code
+     * @return
+     */
+    public static String getText(String code){
         ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
         if (resultDto.isPresent()) {
             SysConfigDto configDto = resultDto.get();
@@ -38,7 +44,12 @@ public class SysConfigUtil {
         return null;
     }
 
-    public static String findSingleByCode(String code) {
+    /**
+     * 获取单选code值
+     * @param code
+     * @return
+     */
+    public static String getSingle(String code) {
         ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
         if (resultDto.isPresent()) {
             SysConfigDto configDto = resultDto.get();
@@ -49,7 +60,28 @@ public class SysConfigUtil {
         return null;
     }
 
-    public static List<String> findMultipleByCode(String code) {
+    /**
+     * 获取单选code值得Integer类型
+     * @param code
+     * @return
+     */
+    public static Integer getSingleInt(String code) {
+        ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
+        if (resultDto.isPresent()) {
+            SysConfigDto configDto = resultDto.get();
+            if (SysConfigTypeEnum.SINGLE.type == configDto.getType()){
+                return Integer.parseInt(configDto.getValue());
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 获取多选code集合
+     * @param code
+     * @return
+     */
+    public static List<String> getMultiple(String code) {
         ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
         if (resultDto.isPresent()) {
             SysConfigDto configDto = resultDto.get();
@@ -60,7 +92,28 @@ public class SysConfigUtil {
         return Lists.newArrayList();
     }
 
-    public static Boolean findBooleanByCode(String code) {
+    /**
+     * 获取多选code Integer集合
+     * @param code
+     * @return
+     */
+    public static List<Integer> getMultipleInt(String code) {
+        ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
+        if (resultDto.isPresent()) {
+            SysConfigDto configDto = resultDto.get();
+            if (SysConfigTypeEnum.MULTIPLE.type == configDto.getType()){
+                return configDto.getSelectValueList().stream().map(Integer::parseInt).collect(Collectors.toList());
+            }
+        }
+        return Lists.newArrayList();
+    }
+
+    /**
+     * 获取开关是否打开
+     * @param code
+     * @return
+     */
+    public static Boolean getIsOpen(String code) {
         ResultDto<SysConfigDto> resultDto = sysConfigUtil.sysConfigClient.findByCode(code);
         if (resultDto.isPresent()) {
             SysConfigDto configDto = resultDto.get();
