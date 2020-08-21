@@ -39,7 +39,7 @@ public interface SysConfigApi {
      */
     @ApiOperation("003--根据code更新")
     @PutMapping
-    ResultDto<Boolean> updateByDto(@RequestBody List<SysConfigDto> dtos);
+    ResultDto<Integer> updateByDto(@RequestBody List<SysConfigDto> dtos);
 
     /**
      * 清除缓存
