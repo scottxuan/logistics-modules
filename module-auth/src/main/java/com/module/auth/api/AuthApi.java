@@ -57,4 +57,16 @@ public interface AuthApi {
     })
     @GetMapping("/customer/login/mini")
     ResultDto<LoginResult> customerMiniLogin(@RequestParam String code);
+
+    /**
+     * token刷新
+     * @param refreshToken
+     * @return
+     */
+    @ApiOperation("006--token刷新")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "refreshToken", value = "refreshToken", dataType = "string", paramType = "query")
+    })
+    @GetMapping("/token/refresh")
+    ResultDto<LoginResult> refreshToken(@RequestParam String refreshToken);
 }
