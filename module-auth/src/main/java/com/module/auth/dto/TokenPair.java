@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 /**
  * @author : pc
@@ -18,4 +19,5 @@ public class TokenPair {
     private String accessToken;
     @NotBlank
     private String refreshToken;
+    private Date accessTokenExpireDate;
 }
