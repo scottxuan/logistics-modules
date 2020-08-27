@@ -17,8 +17,8 @@ import java.util.List;
  * @author : pc
  * @date : 2020/8/5
  */
-@RequestMapping("${api}/system/group/config")
 public interface SysConfigGroupApi {
+    String MAPPING = "${api}/system/group/config";
     /**
      * 根据账户查询用户
      * @param code

@@ -15,8 +15,8 @@ import java.util.List;
  * @author : pc
  * @date : 2020/7/3
  */
-@RequestMapping("${api}/airline")
 public interface AirlineApi {
+    String MAPPING = "${api}/airline";
 
     /**
      * 航空公司查询(分页)

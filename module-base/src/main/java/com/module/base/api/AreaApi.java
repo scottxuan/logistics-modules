@@ -16,8 +16,8 @@ import java.util.List;
  * @author : pc
  * @date : 2020/7/2
  */
-@RequestMapping("${api}/area")
 public interface AreaApi {
+    String MAPPING = "${api}/area";
 
     /**
      * 国家查询(分页)

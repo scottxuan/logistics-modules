@@ -7,6 +7,6 @@ import org.springframework.cloud.openfeign.FeignClient;
 /**
  * @author : scottxuan
  */
-@FeignClient(ServiceConstant.SERVICE_BASE)
+@FeignClient(value = ServiceConstant.SERVICE_BASE, path = AirlineApi.MAPPING)
 public interface AirlineFeignClient extends AirlineApi {
 }

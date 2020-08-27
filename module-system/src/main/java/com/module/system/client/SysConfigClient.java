@@ -9,6 +9,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author : pc
  * @date : 2020/8/5
  */
-@FeignClient(ServiceConstant.SERVICE_SYSTEM)
+@FeignClient(value = ServiceConstant.SERVICE_SYSTEM, path = SysConfigApi.MAPPING)
 public interface SysConfigClient extends SysConfigApi {
 }

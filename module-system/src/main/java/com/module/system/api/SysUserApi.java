@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
  * @author : pc
  * @date : 2020/8/5
  */
-@RequestMapping("${api}/system/user")
 public interface SysUserApi {
+    String MAPPING = "${api}/system/user";
     /**
      * 根据账户查询用户
      * @param account

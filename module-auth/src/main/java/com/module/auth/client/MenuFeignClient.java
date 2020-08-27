@@ -8,6 +8,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author : pc
  * @date : 2020/7/21
  */
-@FeignClient(ServiceConstant.SERVICE_AUTH)
+@FeignClient(value = ServiceConstant.SERVICE_AUTH, path = MenuApi.MAPPING)
 public interface MenuFeignClient extends MenuApi {
 }

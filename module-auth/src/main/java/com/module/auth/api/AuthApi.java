@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.*;
  * @author : pc
  * @date : 2020/8/4
  */
-@RequestMapping("${api}/auth")
 public interface AuthApi {
+    String MAPPING = "${api}/auth";
     /**
      * 系统用户账户密码登录
      * @param dto
      * @return
      */
-    @ApiOperation("001--系统用户账户密码登录")
     @PostMapping("/login")
+    @ApiOperation("001--系统用户账户密码登录")
     ResultDto<LoginResult> login(@RequestBody @Validated LoginDto dto);
 
     /**
@@ -30,11 +30,11 @@ public interface AuthApi {
      * @param code
      * @return
      */
+    @GetMapping("/login/mini")
     @ApiOperation("002--系统用户小程序登录")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "code", value = "小程序登录code", dataType = "boolean", paramType = "query")
     })
-    @GetMapping("/login/mini")
     ResultDto<LoginResult> miniLogin(@RequestParam String code);
 
 
@@ -43,8 +43,8 @@ public interface AuthApi {
      * @param dto
      * @return
      */
-    @ApiOperation("003--客户账户密码登录")
     @PostMapping("/customer/login")
+    @ApiOperation("003--客户账户密码登录")
     ResultDto<LoginResult> customerLogin(@RequestBody @Validated LoginDto dto);
 
     /**
@@ -52,11 +52,11 @@ public interface AuthApi {
      * @param code
      * @return
      */
+    @GetMapping("/customer/login/mini")
     @ApiOperation("004--客户小程序登录")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "code", value = "小程序登录code", dataType = "boolean", paramType = "query")
     })
-    @GetMapping("/customer/login/mini")
     ResultDto<LoginResult> customerMiniLogin(@RequestParam String code);
 
     /**
@@ -64,11 +64,11 @@ public interface AuthApi {
      * @param accessToken
      * @return
      */
+    @GetMapping("/token/check")
     @ApiOperation("005--accessToken校验")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "accessToken", value = "refreshToken", dataType = "string", paramType = "query")
     })
-    @GetMapping("/token/check")
     ResultDto<Boolean> checkAccessToken(@RequestParam String accessToken);
 
     /**
@@ -76,7 +76,7 @@ public interface AuthApi {
      * @param tokenPair
      * @return
      */
-    @ApiOperation("006--token刷新")
     @PostMapping("/token/refresh")
+    @ApiOperation("006--token刷新")
     ResultDto<TokenPair> refreshToken(@RequestBody @Validated TokenPair tokenPair);
 }
