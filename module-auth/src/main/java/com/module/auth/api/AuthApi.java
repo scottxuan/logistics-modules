@@ -2,6 +2,7 @@ package com.module.auth.api;
 
 import com.module.auth.dto.LoginDto;
 import com.module.auth.dto.LoginResult;
+import com.module.auth.dto.TokenPair;
 import com.scottxuan.web.result.ResultDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -72,13 +73,10 @@ public interface AuthApi {
 
     /**
      * token刷新
-     * @param refreshToken
+     * @param tokenPair
      * @return
      */
     @ApiOperation("006--token刷新")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "refreshToken", value = "refreshToken", dataType = "string", paramType = "query")
-    })
-    @GetMapping("/token/refresh")
-    ResultDto<LoginResult> refreshToken(@RequestParam String refreshToken);
+    @PostMapping("/token/refresh")
+    ResultDto<TokenPair> refreshToken(@RequestBody @Validated TokenPair tokenPair);
 }
