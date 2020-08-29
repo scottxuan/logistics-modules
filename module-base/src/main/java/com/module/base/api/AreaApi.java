@@ -16,8 +16,8 @@ import java.util.List;
  * @author : pc
  * @date : 2020/7/2
  */
-@RequestMapping("${api}/area")
 public interface AreaApi {
+    String MAPPING = "${api}/area";
 
     /**
      * 国家查询(分页)
@@ -30,15 +30,15 @@ public interface AreaApi {
     @GetMapping("/country_page")
     @ApiOperation("001--国家查询(分页)")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageIndex", value = "页码", defaultValue = "1", dataType = "Integer", paramType = "query"),
-            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10", dataType = "Integer", paramType = "query"),
-            @ApiImplicitParam(name = "sort", value = "排序字段", defaultValue = "ordinal", dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "asc", value = "排序 true升序,false倒序", defaultValue = "true", dataType = "Boolean", paramType = "query")
+            @ApiImplicitParam(name = "pageIndex", value = "页码", defaultValue = "1", example = "1",dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10", example = "10",dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "sort", value = "排序字段", defaultValue = "ordinal", dataType = "string", paramType = "query"),
+            @ApiImplicitParam(name = "asc", value = "排序 true升序,false倒序", defaultValue = "true", example = "true", dataType = "boolean", paramType = "query")
     })
-    ResultDto<List<Area>> country(@RequestParam(required = false,defaultValue = "1") Integer pageIndex,
-                                  @RequestParam(required = false,defaultValue = "10") Integer pageSize,
+    ResultDto<List<Area>> country(@RequestParam(required = false,defaultValue = "1") int pageIndex,
+                                  @RequestParam(required = false,defaultValue = "10") int pageSize,
                                   @RequestParam(required = false,defaultValue = "ordinal") String sort,
-                                  @RequestParam(required = false,defaultValue = "true") Boolean asc);
+                                  @RequestParam(required = false,defaultValue = "true") boolean asc);
 
     /**
      * 国家查询
@@ -57,28 +57,28 @@ public interface AreaApi {
      * @param asc
      * @return
      */
-    @GetMapping("/parent_page/{parentCode}")
+    @GetMapping("/parent_page")
     @ApiOperation("003--下级区域查询(分页)")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageIndex", value = "页码", defaultValue = "1", dataType = "Integer", paramType = "query"),
-            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10", dataType = "Integer", paramType = "query"),
-            @ApiImplicitParam(name = "sort", value = "排序字段", defaultValue = "ordinal", dataType = "String", paramType = "query"),
-            @ApiImplicitParam(name = "asc", value = "排序 true升序,false倒序", defaultValue = "true", dataType = "Boolean", paramType = "query")
+            @ApiImplicitParam(name = "pageIndex", value = "页码", defaultValue = "1", example = "1",dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10", example = "10",dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "sort", value = "排序字段", defaultValue = "ordinal", dataType = "string", paramType = "query"),
+            @ApiImplicitParam(name = "asc", value = "排序 true升序,false倒序", defaultValue = "true", example = "true",dataType = "boolean", paramType = "query")
     })
-    ResultDto<List<Area>> findByParent(@PathVariable String parentCode,
-                                       @RequestParam(required = false,defaultValue = "1") Integer pageIndex,
-                                       @RequestParam(required = false,defaultValue = "10") Integer pageSize,
+    ResultDto<List<Area>> findByParent(@RequestParam(required = false) String parentCode,
+                                       @RequestParam(required = false,defaultValue = "1") int pageIndex,
+                                       @RequestParam(required = false,defaultValue = "10") int pageSize,
                                        @RequestParam(required = false,defaultValue = "ordinal") String sort,
-                                       @RequestParam(required = false,defaultValue = "true") Boolean asc);
+                                       @RequestParam(required = false,defaultValue = "true") boolean asc);
 
     /**
      * 下级区域查询
      * @param parentCode
      * @return
      */
-    @GetMapping("/parent/{parentCode}")
+    @GetMapping("/parent")
     @ApiOperation("004--下级区域查询")
-    ResultDto<List<Area>> findByParent(@PathVariable String parentCode);
+    ResultDto<List<Area>> findByParent(@RequestParam(required = false) String parentCode);
 
     /**
      * 根据code查询
