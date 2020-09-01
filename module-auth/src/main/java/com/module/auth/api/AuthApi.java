@@ -60,23 +60,12 @@ public interface AuthApi {
     ResultDto<LoginResult> customerMiniLogin(@RequestParam String code);
 
     /**
-     * accessToken过期检查
-     * @param accessToken
-     * @return
-     */
-    @GetMapping("/token/check")
-    @ApiOperation("005--accessToken校验")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "accessToken", value = "refreshToken", dataType = "string", paramType = "query")
-    })
-    ResultDto<Boolean> checkAccessToken(@RequestParam String accessToken);
-
-    /**
      * token刷新
-     * @param tokenPair
+     * @param accessToken
+     * @param refreshToken
      * @return
      */
-    @PostMapping("/token/refresh")
+    @GetMapping("/token/refresh")
     @ApiOperation("006--token刷新")
-    ResultDto<TokenPair> refreshToken(@RequestBody @Validated TokenPair tokenPair);
+    ResultDto<TokenPair> refreshToken(@RequestHeader(name = "accessToken") String accessToken, @RequestHeader(name = "refreshToken") String refreshToken);
 }
