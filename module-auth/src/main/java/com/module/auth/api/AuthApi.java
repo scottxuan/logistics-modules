@@ -3,12 +3,15 @@ package com.module.auth.api;
 import com.module.auth.dto.LoginDto;
 import com.module.auth.dto.LoginResult;
 import com.module.auth.dto.TokenPair;
+import com.scottxuan.base.pair.Pair;
 import com.scottxuan.web.result.ResultDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : pc
@@ -68,4 +71,13 @@ public interface AuthApi {
     @GetMapping("/token/refresh")
     @ApiOperation("006--token刷新")
     ResultDto<TokenPair> refreshToken(@RequestHeader(name = "accessToken") String accessToken, @RequestHeader(name = "refreshToken") String refreshToken);
+
+    /**
+     * 获取当前登录用户
+     * @param request
+     * @return
+     */
+    @GetMapping("/current/user/id")
+    @ApiOperation("007--token刷新")
+    ResultDto<Pair<Integer,Integer>> currentUserId(HttpServletRequest request);
 }
