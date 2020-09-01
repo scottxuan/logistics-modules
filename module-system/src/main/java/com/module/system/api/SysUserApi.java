@@ -24,4 +24,16 @@ public interface SysUserApi {
     })
     @GetMapping("/login")
     ResultDto<SysUser> findByAccount(@RequestParam String account);
+
+    /**
+     * 根据id查询用户
+     * @param id
+     * @return
+     */
+    @ApiOperation("002--根据id查询用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "账户id", required = true, dataType = "int", paramType = "query")
+    })
+    @GetMapping("/{id}")
+    ResultDto<SysUser> findById(@PathVariable Integer id);
 }

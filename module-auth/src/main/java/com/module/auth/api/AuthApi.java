@@ -3,6 +3,7 @@ package com.module.auth.api;
 import com.module.auth.dto.LoginDto;
 import com.module.auth.dto.LoginResult;
 import com.module.auth.dto.TokenPair;
+import com.module.common.constants.JwtConstant;
 import com.scottxuan.base.pair.Pair;
 import com.scottxuan.web.result.ResultDto;
 import io.swagger.annotations.ApiImplicitParam;
@@ -70,14 +71,5 @@ public interface AuthApi {
      */
     @GetMapping("/token/refresh")
     @ApiOperation("006--token刷新")
-    ResultDto<TokenPair> refreshToken(@RequestHeader(name = "accessToken") String accessToken, @RequestHeader(name = "refreshToken") String refreshToken);
-
-    /**
-     * 获取当前登录用户
-     * @param request
-     * @return
-     */
-    @GetMapping("/current/user/id")
-    @ApiOperation("007--token刷新")
-    ResultDto<Pair<Integer,Integer>> currentUserId(HttpServletRequest request);
+    ResultDto<TokenPair> refreshToken(@RequestHeader(name = JwtConstant.ACCESS_TOKEN) String accessToken, @RequestHeader(name = JwtConstant.REFRESH_TOKEN) String refreshToken);
 }
