@@ -1,4 +1,4 @@
-package com.module.common.constants;
+package com.module.system.constants;
 
 /**
  * @author : pc

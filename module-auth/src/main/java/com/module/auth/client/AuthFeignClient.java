@@ -1,7 +1,7 @@
 package com.module.auth.client;
 
 import com.module.auth.api.AuthApi;
-import com.module.common.constants.ServiceConstant;
+import com.module.system.constants.ServiceConstant;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

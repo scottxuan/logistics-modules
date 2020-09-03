@@ -1,4 +1,4 @@
-package com.module.common.error;
+package com.module.system.error;
 
 import com.scottxuan.base.error.ErrorCode;
 import com.scottxuan.base.error.IError;

@@ -1,4 +1,4 @@
-package com.module.common.enums;
+package com.module.system.enums;
 
 /**
  * @author : pc

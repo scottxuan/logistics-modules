@@ -1,12 +1,10 @@
 package com.module.common.wechat.core;
 
-import com.module.common.error.ErrorCodes;
+import com.module.system.error.ErrorCodes;
 import com.module.common.http.HttpClient;
 import com.module.common.http.HttpRequest;
 import com.module.common.wechat.common.WxResponse;
-import com.scottxuan.base.exception.ExceptionUtils;
 import com.scottxuan.base.utils.JsonUtils;
-import com.scottxuan.base.utils.ObjectUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

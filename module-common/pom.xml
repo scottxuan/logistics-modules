@@ -15,22 +15,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.scottxuan.basic</groupId>
-            <artifactId>basic-core</artifactId>
-            <version>${basic-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.scottxuan.basic</groupId>
-            <artifactId>basic-web</artifactId>
-            <version>${basic-web.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-httpclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.logistics.modules</groupId>
+            <artifactId>module-system</artifactId>
+            <version>${module-system.version}</version>
         </dependency>
     </dependencies>
 

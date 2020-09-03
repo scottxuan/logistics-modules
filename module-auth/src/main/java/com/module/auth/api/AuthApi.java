@@ -3,16 +3,13 @@ package com.module.auth.api;
 import com.module.auth.dto.LoginDto;
 import com.module.auth.dto.LoginResult;
 import com.module.auth.dto.TokenPair;
-import com.module.common.constants.JwtConstant;
-import com.scottxuan.base.pair.Pair;
+import com.module.system.constants.JwtConstant;
 import com.scottxuan.web.result.ResultDto;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author : pc

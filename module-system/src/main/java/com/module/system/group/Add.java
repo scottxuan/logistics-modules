@@ -1,4 +1,4 @@
-package com.module.common.group;
+package com.module.system.group;
 
 /**
  * @author : scottxuan

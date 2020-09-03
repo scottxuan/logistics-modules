@@ -16,8 +16,8 @@
     <dependencies>
         <dependency>
             <groupId>com.logistics.modules</groupId>
-            <artifactId>module-common</artifactId>
-            <version>${module-common.version}</version>
+            <artifactId>module-system</artifactId>
+            <version>${module-system.version}</version>
         </dependency>
     </dependencies>
 </project>

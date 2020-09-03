@@ -1,6 +1,6 @@
 package com.module.base.client;
 
-import com.module.common.constants.ServiceConstant;
+import com.module.system.constants.ServiceConstant;
 import com.module.base.api.AirlineApi;
 import org.springframework.cloud.openfeign.FeignClient;
 
