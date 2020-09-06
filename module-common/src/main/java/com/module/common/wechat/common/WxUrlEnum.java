@@ -1,8 +1,11 @@
 package com.module.common.wechat.common;
 
+import com.module.common.config.ConfigManager;
 import com.module.common.http.HttpMethod;
 import com.module.common.http.HttpUrl;
+import org.springframework.stereotype.Component;
 
+@Component
 public enum WxUrlEnum implements HttpUrl {
     //小程序登录
     code2Session(HttpMethod.GET,"https://api.weixin.qq.com/sns/jscode2session"),
@@ -35,7 +38,7 @@ public enum WxUrlEnum implements HttpUrl {
 
     @Override
     public String url(){
-        return this.url;
+        return ConfigManager.getConfig().getWeChatHost() + this.url;
     }
 
 }

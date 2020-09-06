@@ -1,7 +1,6 @@
 package com.module.common.wechat.core;
 
-import com.module.system.error.ErrorCodes;
-import com.module.common.http.HttpClient;
+import com.module.common.http.HttpUtils;
 import com.module.common.http.HttpRequest;
 import com.module.common.wechat.common.WxResponse;
 import com.scottxuan.base.utils.JsonUtils;
@@ -20,7 +19,7 @@ public class WxClient {
      */
     public static <T extends WxResponse> T request(HttpRequest<T> httpRequest) {
         log.info("wechat " + httpRequest.getUrl().toString() + " request:" + httpRequest.getParameters());
-        String result = HttpClient.request(httpRequest);
+        String result = HttpUtils.request(httpRequest);
         log.info("wechat " + httpRequest.getUrl().toString() + " response:" + result);
         if (StringUtils.isBlank(result)) {
             result = "{\"errcode\":-1,\"errmsg\":[微信]系统超时!}";

@@ -46,6 +46,7 @@
         <service-auth.version>1.0</service-auth.version>
         <service-zuul.version>1.0</service-zuul.version>
         <service-system.version>1.0</service-system.version>
+        <service-pay.version>1.0</service-pay.version>
     </properties>
 
     <dependencyManagement>

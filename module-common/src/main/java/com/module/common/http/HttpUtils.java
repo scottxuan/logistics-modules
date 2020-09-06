@@ -1,7 +1,7 @@
 package com.module.common.http;
 
 import com.scottxuan.base.utils.JsonUtils;
-import com.scottxuan.core.http.HttpClientUtils;
+import com.scottxuan.core.http.HttpClient;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -10,7 +10,7 @@ import java.util.Map;
  * @author scottxuan
  */
 @Slf4j
-public class HttpClient {
+public class HttpUtils {
 
     /**
      * 发送http请求
@@ -22,10 +22,10 @@ public class HttpClient {
         String result;
         switch (httpRequest.getUrl().method()) {
             case GET:
-                result = HttpClientUtils.doGet(httpRequest.getUrl().url(), getMap(httpRequest.getParameters()));
+                result = HttpClient.get(httpRequest.getUrl().url());
                 break;
             case POST:
-                result = HttpClientUtils.doPost(httpRequest.getUrl().url(), httpRequest.getParameters());
+                result = HttpClient.post(httpRequest.getUrl().url(), httpRequest.getParameters());
                 break;
             default:
                 result = "";
