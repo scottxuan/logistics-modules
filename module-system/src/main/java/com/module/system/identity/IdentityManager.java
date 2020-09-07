@@ -34,7 +34,11 @@ public class IdentityManager {
         identityManager = this;
     }
 
-    public static Identity getCurrentUser(){
+    /**
+     * 获取当前登录用户
+     * @return
+     */
+    public static Identity currentUser(){
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes();
         if (servletRequestAttributes == null) {
@@ -54,6 +58,18 @@ public class IdentityManager {
         Integer userId = (Integer)claims.get(JwtConstant.USER_ID);
         Integer userSource = (Integer)claims.get(JwtConstant.USER_SOURCE);
         return findByIdAndSource(userId,userSource);
+    }
+
+    /**
+     * 获取当前登录用户id
+     * @return
+     */
+    public static Integer currentUserId(){
+        Identity identity = currentUser();
+        if (identity == null) {
+            return -1;
+        }
+        return identity.getId();
     }
 
     private static Identity findByIdAndSource(Integer userId , Integer source){
